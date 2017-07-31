@@ -1,9 +1,49 @@
 <ion-view view-title="Account">
   <ion-content>
+    <ion-refresher pulling-text="下拉刷新。。。" on-refresh="doRefresh()"></ion-refresher>
     <ion-list>
     <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle>
+    </ion-list>
+    <button class="button icon ion-gear-a" ng-click = 'show()'>上拉菜单</button>
+    <button class="button icon ion-gear-a" ng-click = 'action()'>背景层</button>
+    <!--复选框-->
+    <div class="list">
+    <div class="item item-divider">
+    复选框
+     </div>
+        <ion-checkbox ng-model='item.checked' ng-checked="item.checked" ng-repeat="item in devList">
+            {{item.text}}
+        </ion-checkbox>
+        <div class="item">
+             <pre ng-bind="devList | json"></pre>
+        </div>
+        </div>
+    </div>
+    <!--单选框-->
+    <div class="list">
+    <div class="item item-divider">
+    单选框
+     </div>
+        <ion-radio ng-repeat="item in serveList" ng-value="item.value" ng-model="item.value">{{item.text}}
+        </ion-radio>
+   </div>
+    <!--开关-->
+    <div class="list">
+        <div class="item item-divider">
+            Settings
+        </div>
+        <ion-toggle ng-model="item.checked" toggle-class="toggle-calm" ng-repeat="item in settingsList" ng-checked="item.checked">
+        {{item.text}}
+        </ion-toggle>
+        <div class="item">
+            <pre ng-bind="settingsList | json"></pre>
+        </div>
+    </div>
+    <!--列表操作-->
+    <ion-list show-delete=''>
+        <ion-item></ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

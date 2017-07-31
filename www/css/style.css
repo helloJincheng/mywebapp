@@ -1,1 +1,15 @@
 /* Empty. Add your own CSS if you like */
+.goods-list,.content{
+	font-size: 0.5em;
+}
+.goods-list{
+  text-align: center;
+}
+.goods-list a{
+	display: block;
+	text-decoration: none;
+	color: #000;
+}
+.goods-list a img{
+	border-radius: 50%;
+}
